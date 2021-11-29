@@ -1,0 +1,16 @@
+{
+  "itemGroup.tab_huddoutitens": "§cHuddout Itens",
+  "item.huddoutressurrections.key_of_eternity": "Key of Eternity",
+  "item.huddoutressurrections.chest_of_eternity": "Chest of Eternity",
+
+  "item.huddoutressurrections.key_of_technology": "Key of Technology",
+  "item.huddoutressurrections.chest_of_technology": "Chest of Technology",
+
+
+
+
+  "text.huddoutressurrections.chest.success":  "§6[HuddoutMod] §aPlayer %s §ahas opened the %s §aand obtained the item %s x %s!",
+  "text.huddoutressurrections.chest.fail":  "§6[HuddoutMod] §cYou don't have the key to open this chest.",
+  "text.huddoutressurrections.chest.badlucky":  "§6[HuddoutMod] §cYou are very unlucky, the box is empty.",
+  "text.huddoutressurrections.chest.inventoryFull":  "§6[HuddoutMod] §cYou inventory is full!"
+}

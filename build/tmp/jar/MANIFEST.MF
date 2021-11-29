@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: huddoutressurrections
+MixinConfigs: huddoutressurrections.mixins.json
+Implementation-Version: 1.0
+Specification-Vendor: Martinfer22
+Specification-Title: huddoutressurrections
+Implementation-Timestamp: 2021-11-29T04:17:55-0300
+Specification-Version: 1
+Implementation-Vendor: Martinfer22
+
