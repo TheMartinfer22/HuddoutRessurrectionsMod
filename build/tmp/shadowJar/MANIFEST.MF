@@ -4,7 +4,7 @@ MixinConfigs: huddoutressurrections.mixins.json
 Implementation-Version: task ':jar' property 'archiveVersion'
 Specification-Vendor: Martinfer22
 Specification-Title: huddoutressurrections
-Implementation-Timestamp: 2021-11-29T04:17:55-0300
+Implementation-Timestamp: 2021-11-29T20:26:13-0300
 Specification-Version: 1
 Implementation-Vendor: Martinfer22
 
