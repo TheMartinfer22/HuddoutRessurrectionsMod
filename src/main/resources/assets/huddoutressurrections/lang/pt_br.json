@@ -1,0 +1,15 @@
+{
+  "itemGroup.tab_huddoutitens": "§cHuddout Itens",
+  "item.huddoutressurrections.key_of_eternity": "Chave da eternidade",
+  "item.huddoutressurrections.chest_of_eternity": "Baú da eternidade",
+
+  "item.huddoutressurrections.key_of_technology": "Chave tecnológica",
+  "item.huddoutressurrections.chest_of_technology": "Baú da tecnologia",
+
+
+
+  "text.huddoutressurrections.chest.success":  "§6[HuddoutMod] §aO jogador %s §aabriu o %s §ae obteve o item %s x %s!",
+  "text.huddoutressurrections.chest.fail":  "§6[HuddoutMod] §cVocê não possui uma chave para abrir esse baú.",
+  "text.huddoutressurrections.chest.badlucky":  "§6[HuddoutMod] §cVocê é muito azarado, a caixa está vazia.",
+  "text.huddoutressurrections.chest.inventoryFull":  "§6[HuddoutMod] §cSeu inventário está cheio!"
+}
