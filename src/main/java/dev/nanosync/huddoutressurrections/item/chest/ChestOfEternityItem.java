@@ -28,7 +28,7 @@ public class ChestOfEternityItem extends Item {
                         5,
                         "chest_of_eternity",
                         this,
-                        Giveways.ITEMS_REGISTRY_FORGE);
+                        Giveways.genForgeItems());
     }
 
     @Override
