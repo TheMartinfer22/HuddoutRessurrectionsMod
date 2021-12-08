@@ -31,7 +31,7 @@ public class ChestOfTechnologicItem extends Item {
                 5,
                 "chest_of_technology",
                 this,
-                Giveways.ITEMS_REGISTRY_FORGE);
+                Giveways.getIndustrialItems());
     }
 
     @Override

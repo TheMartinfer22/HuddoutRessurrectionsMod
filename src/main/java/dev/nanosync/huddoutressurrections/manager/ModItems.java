@@ -26,8 +26,6 @@ public class ModItems {
                     .rarity(Rarity.RARE)
                     .group(ItensTab.get)));
 
-
-
     // CHEST's
     public static final RegistryObject<ChestOfEternityItem> CHEST_OF_ETERNITY = ITEMS.register("chest_of_eternity", () ->
             new ChestOfEternityItem(new Item.Properties()
@@ -40,5 +38,8 @@ public class ModItems {
                     .rarity(Rarity.RARE)
                     .maxStackSize(1)
                     .group(ItensTab.get)));
+
+
+
 
 }
