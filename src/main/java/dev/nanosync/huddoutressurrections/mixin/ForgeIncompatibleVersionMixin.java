@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 public class ForgeIncompatibleVersionMixin  {
     /**
      * @author focamacho - MyServerIsCompatible
+     * @reason Fix the incompatible versions on multiplayer gui
      */
     @Overwrite
     public static void drawForgePingInfo(MultiplayerScreen gui, ServerData target, MatrixStack mStack, int x, int y, int width, int relativeMouseX, int relativeMouseY) {}
