@@ -1,47 +1,55 @@
 package dev.nanosync.huddoutressurrections.utils;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Giveways {
 
-//    public static int GIVEWAYS_SIZE;
-    public static List<ItemStack> ITEMS_REGISTRY_FORGE = new ArrayList<>();
+    private static List<ItemStack> allForgeItems = new ArrayList<>(); // do not place final
+    private static List<ItemStack> industrialItems = new ArrayList<>(); // do not place final
+    private static List<ItemStack> foodItens = new ArrayList<>(); // do not place final
 
-//    public static List<Item> getGiveways(){
-//        List<Item> itemList = new ArrayList<>();
-//        itemList.add(getItemByRegistry("minecraft:diamond"));
-//        itemList.add(getItemByRegistry("minecraft:gold_ingot"));
-//        itemList.add(getItemByRegistry("minecraft:stone"));
-//        itemList.add(getItemByRegistry("minecraft:dirt"));
-//        itemList.add(getItemByRegistry("minecraft:redstone"));
-//        itemList.add(getItemByRegistry("minecraft:emerald"));
-//        GIVEWAYS_SIZE = itemList.size();
-//        return itemList;
-//    }
-
-//    public static Item getItemByRegistry(String registry) {
-//        AtomicReference<Item> item2 = new AtomicReference<>();
-//        ForgeRegistries.ITEMS.getValues().forEach(item -> {
-//            if (Objects.requireNonNull(item.getRegistryName()).toString().equals(registry)){
-//                item2.set(item);
-//            }
-//        });
-//        return item2.get();
-//    }
-
-    public static void loadItensForge(){
-        ForgeRegistries.ITEMS.getValues().forEach(itemStacksGame -> {
-            ITEMS_REGISTRY_FORGE.add(itemStacksGame.getDefaultInstance());
-        });
+    public static List<ItemStack> getIndustrialItems(){
+        if (industrialItems.size() == 0){
+            genForgeItems();
+            industrialItems.addAll(getItemsByRegistries(Arrays.asList("mekanism", "industrial")));
+        }
+        return getItemList(industrialItems);
     }
 
-    private ItemStack getRandomItemGame(){
-        return ITEMS_REGISTRY_FORGE.get(new Random().nextInt(Giveways.ITEMS_REGISTRY_FORGE.size()));
+    public static List<ItemStack> getItemsByRegistries(List<String> registries) {
+        List<ItemStack> arrayStack = new ArrayList<>();
+        ForgeRegistries.ITEMS.getValues().forEach(item -> {
+            registries.forEach(registry -> {
+                if (Objects.requireNonNull(item.getRegistryName()).toString().contains(registry)){
+                    arrayStack.add(item.getDefaultInstance());
+                }
+            });
+        });
+        return arrayStack;
+    }
+
+    public static List<ItemStack> genForgeItems(){
+        if (allForgeItems.size() == 0){
+            ForgeRegistries.ITEMS.getValues().forEach(itemStacksGame -> {
+                if (itemStacksGame != null){
+                    allForgeItems.add(itemStacksGame.getDefaultInstance()); // DO NOT PUT GETITEM FUNCTION
+                }
+            });
+        }
+
+        return allForgeItems.stream().distinct().collect(Collectors.toList());
+    }
+
+    public static List<ItemStack> getItemList(List<ItemStack>  itemStackList){
+        if (itemStackList != null){
+            return itemStackList;
+        } else {
+            return new ArrayList<>(Collections.singleton(new ItemStack(Items.AIR, 1)));
+        }
     }
 }
