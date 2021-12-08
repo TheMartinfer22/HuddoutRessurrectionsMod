@@ -28,7 +28,7 @@ public class ChestOfTechnologicItem extends Item {
                 playerIn,
                 handIn,
                 ModItems.KEY_OF_TECHNOLOGY.get().getDefaultInstance(),
-                5,
+                1,
                 "chest_of_technology",
                 this,
                 Giveways.getIndustrialItems());
