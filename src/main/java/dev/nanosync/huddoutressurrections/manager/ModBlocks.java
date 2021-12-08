@@ -9,14 +9,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModBlocks {
 
 
-//    public static ItemGroup tabBlocks = new ItemGroup("Huddout Blocks") {
-//        @Override
-//        public ItemStack createIcon() {
-//            return new ItemStack(ModItems.GOLD_COIN.get());
-//        }
-//    };
-//
-
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Main.MODID);
 
 //    public static final RegistryObject<Block> ROCK_BLOCK = BLOCKS.register("teste", () ->
