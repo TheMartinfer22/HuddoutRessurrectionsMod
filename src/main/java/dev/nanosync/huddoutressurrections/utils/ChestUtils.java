@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class ChestUtils {
 
-    public ActionResult<ItemStack> createChest(World worldIn, PlayerEntity playerIn, Hand handIn, ItemStack key, int quantityToGive, String chestKey, Item classForChest, List<ItemStack> itemList){
+    public ActionResult<ItemStack> createChest(World worldIn, PlayerEntity playerIn, Hand handIn, ItemStack key, int quantityToGive, String chestKey, Item classForChest, List<ItemStack> itemList, boolean broadcast){
         ItemStack itemstack = playerIn.getHeldItem(handIn);
         playerIn.setActiveHand(handIn);
         if (!handIn.equals(Hand.MAIN_HAND) | playerIn instanceof FakePlayer | worldIn.isRemote()) return ActionResult.resultFail(itemstack);
@@ -55,12 +55,16 @@ public class ChestUtils {
             arraysInfosItem[1] = new TranslationTextComponent("item.huddoutressurrections." + chestKey).getString();
             arraysInfosItem[2] = this.getNameFor(item.getDefaultInstance()).getString();
             arraysInfosItem[3] = Integer.toString(quantityOfItem);
+            if (broadcast){
+                sendSuccess(worldIn, playerIn, arraysInfosItem);
+            } else {
+                ITextComponent textComponent = new TranslationTextComponent("text.huddoutressurrections.chest.no_broadcast_success", arraysInfosItem[2]);
+                playerIn.sendStatusMessage(textComponent, true);
+            }
 
             // Clear key and chest
             playerIn.inventory.getStackInSlot(itemSlot).shrink(1);
             itemstack.shrink(1);
-
-            sendSuccess(worldIn, playerIn, arraysInfosItem);
 
             // Added to uses(I do not know this :'()
             playerIn.addStat(Stats.ITEM_USED.get(classForChest));

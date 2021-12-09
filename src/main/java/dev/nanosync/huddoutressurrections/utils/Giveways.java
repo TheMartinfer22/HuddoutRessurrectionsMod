@@ -12,6 +12,9 @@ public class Giveways {
     private static List<ItemStack> allForgeItems = new ArrayList<>(); // do not place final
     private static List<ItemStack> industrialItems = new ArrayList<>(); // do not place final
     private static List<ItemStack> foodItens = new ArrayList<>(); // do not place final
+    private static List<ItemStack> magicItems = new ArrayList<>(); // do not place final
+    private static List<ItemStack> adventureItems = new ArrayList<>(); // do not place final
+    private static List<ItemStack> oreItems = new ArrayList<>(); // do not place final
 
     public static List<ItemStack> getIndustrialItems(){
         if (industrialItems.size() == 0){
@@ -20,6 +23,31 @@ public class Giveways {
         }
         return getItemList(industrialItems);
     }
+
+    public static List<ItemStack> getMagicItems(){
+        if (magicItems.size() == 0){
+            genForgeItems();
+            magicItems.addAll(getItemsByRegistries(Arrays.asList("magic")));
+        }
+        return getItemList(magicItems);
+    }
+
+    public static List<ItemStack> getAdventureItems(){
+        if (adventureItems.size() == 0){
+            genForgeItems();
+            adventureItems.addAll(getItemsByRegistries(Arrays.asList("reliquary", "artifacts")));
+        }
+        return getItemList(adventureItems);
+    }
+
+    public static List<ItemStack> getOresItems(){
+        if (oreItems.size() == 0){
+            genForgeItems();
+            oreItems.addAll(getItemsByRegistries(Arrays.asList("ingot")));
+        }
+        return getItemList(oreItems);
+    }
+
 
     public static List<ItemStack> getItemsByRegistries(List<String> registries) {
         List<ItemStack> arrayStack = new ArrayList<>();
