@@ -10,13 +10,13 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class KeyOfTechnologicItem extends Item {
-    public KeyOfTechnologicItem(Properties properties) {
+public class EternityKeyItem extends Item {
+    public EternityKeyItem(Properties properties) {
         super(properties);
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new StringTextComponent("§6Abra o baú da tecnologia com essa chave"));
+        tooltip.add(new StringTextComponent("§6Abra o baú da eternidade com essa chave"));
     }
 }

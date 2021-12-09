@@ -9,35 +9,33 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.util.text.*;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.List;
+import java.util.*;
 
-public class ChestOfTechnologicItem extends Item {
-    public ChestOfTechnologicItem(Properties properties) {
+public class EternityChestItem extends Item {
+    public EternityChestItem(Properties properties) {
         super(properties);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        return new ChestUtils().createChest(worldIn,
-                playerIn,
-                handIn,
-                ModItems.KEY_OF_TECHNOLOGY.get().getDefaultInstance(),
-                1,
-                "chest_of_technology",
-                this,
-                Giveways.getIndustrialItems());
+        return new ChestUtils()
+                .createChest(worldIn, playerIn, handIn,
+                        ModItems.ETERNITY_KEY.get().getDefaultInstance(),
+                        5,
+                        "eternity_chest",
+                        this,
+                        Giveways.genForgeItems(),
+                        true);
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new StringTextComponent("§6Item necessário para abrir: §dChave Tecnológica"));
-        tooltip.add(new StringTextComponent("§6Possui a chance de vir objetos industriais"));
+        tooltip.add(new StringTextComponent("§6Item necessário para abrir: §dChave da Eternidade"));
+        tooltip.add(new StringTextComponent("§6Possui a chance de vir qualquer objeto do jogo."));
     }
 
     @Override
