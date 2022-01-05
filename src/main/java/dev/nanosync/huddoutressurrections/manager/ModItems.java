@@ -7,9 +7,10 @@ import dev.nanosync.huddoutressurrections.item.chest.TechnologyChestItem;
 import dev.nanosync.huddoutressurrections.item.key.EternityKeyItem;
 import dev.nanosync.huddoutressurrections.item.key.MinersKeyItem;
 import dev.nanosync.huddoutressurrections.item.key.TechnologicalKeyItem;
+import dev.nanosync.huddoutressurrections.item.sword.HuddoutSwordItem;
 import dev.nanosync.huddoutressurrections.tab.ItensTab;
-import net.minecraft.item.Item;
-import net.minecraft.item.Rarity;
+import net.minecraft.item.*;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -51,4 +52,11 @@ public class ModItems {
                     .rarity(Rarity.COMMON)
                     .maxStackSize(1)
                     .group(ItensTab.get)));
+
+    // SWORDS
+    public static final RegistryObject<HuddoutSwordItem> HUDDOUT_SWORD = ITEMS.register("huddout_sword", () ->
+            new HuddoutSwordItem(ItemTier.NETHERITE, 20, 3, new Item.Properties()
+                    .rarity(Rarity.EPIC)
+                    .group(ItensTab.get)
+                    .maxDamage(300)));
 }

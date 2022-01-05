@@ -27,7 +27,7 @@ public class MinersChestItem extends Item {
         return new ChestUtils().createChest(worldIn,
                 playerIn,
                 handIn,
-                ModItems.MINERS_CHEST.get().getDefaultInstance(),
+                ModItems.MINERS_KEY.get().getDefaultInstance(),
                 6, // Do not put 1
                 "miners_chest",
                 this,
