@@ -1,5 +1,6 @@
 package dev.nanosync.huddoutressurrections.utils;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,7 +28,7 @@ public class Giveways {
     public static List<ItemStack> getMagicItems(){
         if (magicItems.size() == 0){
             genForgeItems();
-            magicItems.addAll(getItemsByRegistries(Arrays.asList("magic")));
+            magicItems.addAll(getItemsByRegistries(Collections.singletonList("magic")));
         }
         return getItemList(magicItems);
     }
@@ -51,26 +52,33 @@ public class Giveways {
 
     public static List<ItemStack> getItemsByRegistries(List<String> registries) {
         List<ItemStack> arrayStack = new ArrayList<>();
-        ForgeRegistries.ITEMS.getValues().forEach(item -> {
-            registries.forEach(registry -> {
-                if (Objects.requireNonNull(item.getRegistryName()).toString().contains(registry)){
+        for (Item item : ForgeRegistries.ITEMS.getValues()) {
+            for (String registry : registries) {
+                if (Objects.requireNonNull(item.getRegistryName()).toString().contains(registry)) {
                     arrayStack.add(item.getDefaultInstance());
                 }
-            });
-        });
+            }
+        }
         return arrayStack;
     }
 
     public static List<ItemStack> genForgeItems(){
         if (allForgeItems.size() == 0){
-            ForgeRegistries.ITEMS.getValues().forEach(itemStacksGame -> {
-                if (itemStacksGame != null){
+            for (Item itemStacksGame : ForgeRegistries.ITEMS.getValues()) {
+                if (itemStacksGame != null) {
                     allForgeItems.add(itemStacksGame.getDefaultInstance()); // DO NOT PUT GETITEM FUNCTION
                 }
-            });
+            }
         }
 
-        return allForgeItems.stream().distinct().collect(Collectors.toList());
+        List<ItemStack> list = new ArrayList<>();
+        Set<ItemStack> uniqueValues = new HashSet<>();
+        for (ItemStack allForgeItem : allForgeItems) {
+            if (uniqueValues.add(allForgeItem)) {
+                list.add(allForgeItem);
+            }
+        }
+        return list;
     }
 
     public static List<ItemStack> getItemList(List<ItemStack>  itemStackList){
