@@ -10,12 +10,10 @@ import java.util.stream.Collectors;
 
 public class Giveways {
 
-    private static List<ItemStack> allForgeItems = new ArrayList<>(); // do not place final
-    private static List<ItemStack> industrialItems = new ArrayList<>(); // do not place final
-    private static List<ItemStack> foodItens = new ArrayList<>(); // do not place final
-    private static List<ItemStack> magicItems = new ArrayList<>(); // do not place final
-    private static List<ItemStack> adventureItems = new ArrayList<>(); // do not place final
-    private static List<ItemStack> oreItems = new ArrayList<>(); // do not place final
+    private static List<ItemStack> allForgeItems = new ArrayList<>();
+    private static List<ItemStack> industrialItems = new ArrayList<>();
+    private static List<ItemStack> adventureItems = new ArrayList<>();
+    private static List<ItemStack> oreItems = new ArrayList<>();
 
     public static List<ItemStack> getIndustrialItems(){
         if (industrialItems.size() == 0){
@@ -23,14 +21,6 @@ public class Giveways {
             industrialItems.addAll(getItemsByRegistries(Arrays.asList("mekanism", "industrial")));
         }
         return getItemList(industrialItems);
-    }
-
-    public static List<ItemStack> getMagicItems(){
-        if (magicItems.size() == 0){
-            genForgeItems();
-            magicItems.addAll(getItemsByRegistries(Collections.singletonList("magic")));
-        }
-        return getItemList(magicItems);
     }
 
     public static List<ItemStack> getAdventureItems(){
@@ -44,7 +34,7 @@ public class Giveways {
     public static List<ItemStack> getOresItems(){
         if (oreItems.size() == 0){
             genForgeItems();
-            oreItems.addAll(getItemsByRegistries(Arrays.asList("ingot")));
+            oreItems.addAll(getItemsByRegistries(Collections.singletonList("ingot")));
         }
         return getItemList(oreItems);
     }
@@ -66,7 +56,7 @@ public class Giveways {
         if (allForgeItems.size() == 0){
             for (Item itemStacksGame : ForgeRegistries.ITEMS.getValues()) {
                 if (itemStacksGame != null) {
-                    allForgeItems.add(itemStacksGame.getDefaultInstance()); // DO NOT PUT GETITEM FUNCTION
+                    allForgeItems.add(itemStacksGame.getDefaultInstance());
                 }
             }
         }

@@ -80,9 +80,9 @@ public class ChestUtils {
 
     private void sendSuccess(World world, PlayerEntity player, String[] args){
         ITextComponent textComponent = new TranslationTextComponent("text.huddoutressurrections.chest.success", args);
-        world.getPlayers().forEach(players -> {
+        for (PlayerEntity players : world.getPlayers()) {
             players.sendMessage(textComponent, player.getUniqueID());
-        });
+        }
     }
 
     private void sendFail(String key, PlayerEntity player){
@@ -108,7 +108,6 @@ public class ChestUtils {
     }
 
     private boolean inventoryIsFull(NonNullList<ItemStack> inventory) {
-        boolean hasItem = false;
         for (ItemStack itemStack : inventory) {
             if (itemStack.getItem() == Items.AIR){
                 return false;
