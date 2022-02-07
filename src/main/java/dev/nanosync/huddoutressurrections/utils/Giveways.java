@@ -6,30 +6,11 @@ import net.minecraft.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Giveways {
 
     private static List<ItemStack> allForgeItems = new ArrayList<>();
-    private static List<ItemStack> industrialItems = new ArrayList<>();
-    private static List<ItemStack> adventureItems = new ArrayList<>();
     private static List<ItemStack> oreItems = new ArrayList<>();
-
-    public static List<ItemStack> getIndustrialItems(){
-        if (industrialItems.size() == 0){
-            genForgeItems();
-            industrialItems.addAll(getItemsByRegistries(Arrays.asList("mekanism", "industrial")));
-        }
-        return getItemList(industrialItems);
-    }
-
-    public static List<ItemStack> getAdventureItems(){
-        if (adventureItems.size() == 0){
-            genForgeItems();
-            adventureItems.addAll(getItemsByRegistries(Arrays.asList("reliquary", "artifacts")));
-        }
-        return getItemList(adventureItems);
-    }
 
     public static List<ItemStack> getOresItems(){
         if (oreItems.size() == 0){
